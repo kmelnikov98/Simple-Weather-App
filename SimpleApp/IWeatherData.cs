@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimpleApp
 {
-	public interface IWeatherData: IDisposable
+	public interface IWeatherData
 	{
 		string GetWeatherData();
 		string GetLatitude();

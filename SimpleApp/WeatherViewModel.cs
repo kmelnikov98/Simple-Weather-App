@@ -20,7 +20,6 @@ namespace SimpleApp
 
 		public void Dispose()
 		{
-			WeatherData.Dispose();
 			WeatherData = null;
 		}
 	}
