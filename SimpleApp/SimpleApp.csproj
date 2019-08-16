@@ -80,8 +80,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Extras\RelayCommand.cs" />
+    <Compile Include="ILocation.cs" />
     <Compile Include="IWeatherData.cs" />
     <Compile Include="IWeatherDataFactory.cs" />
+    <Compile Include="Location.cs" />
     <Compile Include="WeatherData.cs" />
     <Compile Include="WeatherDataFactory.cs" />
     <Compile Include="WeatherViewModel.cs" />

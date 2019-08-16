@@ -11,14 +11,38 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-        
-        <TextBlock Text="{Binding Latitude}"
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBox Text="{Binding City}"
+                 Width="50"
+                 Grid.Column="0"
+                 HorizontalAlignment="Center"/>
+
+        <TextBox Text="{Binding Country}"
+                 Width="50"
+                 Grid.Row="1"
+                 Grid.Column="0"
+                 HorizontalAlignment="Center"/>
+
+        <Button Command="{Binding SearchCommand}"
+                Grid.Row="1"
+                Grid.Column="1"
+                Content="Search"/>
+
+        <TextBlock Text="{Binding Latitude, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                    FontSize="25"
+                   Grid.Row="2"
                    Grid.Column="0"/>
 
-        <TextBlock Text="{Binding Longitude}"
+        <TextBlock Text="{Binding Longitude, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                    Margin="5 0 0 0"
                    FontSize="25"
+                   Grid.Row="2"
                    Grid.Column="1"/>
         
     </Grid>

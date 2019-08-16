@@ -13,19 +13,33 @@ namespace SimpleApp
 
 		private string m_weatherData;
 
-		public WeatherData()
+		#region Constructor
+
+		public WeatherData() //responsible for parsing
 		{
-			GetWeatherData();
+			GetWeatherData(); 
 		}
+
+		#endregion
+
+		#region Properties
+
+		public string CityLocation { get; set; }
+
+		public string CountryLocation { get; set; }
+		#endregion
 
 		public string GetWeatherData()
 		{
-			HttpResponse<string> jsonResponse = Unirest.get("https://community-open-weather-map.p.rapidapi.com/weather?callback=test&id=2172797&units=%22metric%22+or+%22imperial%22&mode=xml%2C+html&q=port+coquitlam%2C+canada")
-			.header("X-RapidAPI-Host", "community-open-weather-map.p.rapidapi.com")
-			.header("X-RapidAPI-Key", "baa31766f0mshf8829a0c8da5dd9p1a932ajsn480bfe440f3b")
-			.asJson<string>();
+			if (CityLocation != null && CountryLocation != null)
+			{
+				HttpResponse<string> jsonResponse = Unirest.get("https://community-open-weather-map.p.rapidapi.com/weather?callback=test&id=2172797&units=%22metric%22+or+%22imperial%22&mode=xml%2C+html&q=" + CityLocation + "%2C+" + CountryLocation)
+				.header("X-RapidAPI-Host", "community-open-weather-map.p.rapidapi.com")
+				.header("X-RapidAPI-Key", "baa31766f0mshf8829a0c8da5dd9p1a932ajsn480bfe440f3b")
+				.asJson<string>();
 
-			m_weatherData = jsonResponse.Body;
+				m_weatherData = jsonResponse.Body;
+			}
 
 			return m_weatherData;
 		}
