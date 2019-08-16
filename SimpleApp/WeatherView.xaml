@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:SimpleApp"
         mc:Ignorable="d"
         Title="WeatherView" Height="450" Width="800">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>

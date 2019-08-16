@@ -15,9 +15,9 @@ namespace SimpleApp
 
 		#region Constructor
 
-		public WeatherData() //responsible for parsing
+		public WeatherData() 
 		{
-			GetWeatherData(); 
+
 		}
 
 		#endregion
@@ -27,6 +27,7 @@ namespace SimpleApp
 		public string CityLocation { get; set; }
 
 		public string CountryLocation { get; set; }
+
 		#endregion
 
 		public string GetWeatherData()

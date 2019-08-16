@@ -33,15 +33,9 @@ namespace SimpleApp
 		{
 			get
 			{
-				if (m_latitude == null)
-				{
-					m_latitude = WeatherData.GetLatitude();
-					return m_latitude;
-				}
-				else
-				{
-					return m_latitude;
-				}
+				m_latitude = WeatherData.GetLatitude();
+				return m_latitude;
+				
 			}
 			set
 			{
@@ -58,15 +52,8 @@ namespace SimpleApp
 		{
 			get
 			{
-				if(m_longitude == null)
-				{
 					m_longitude = WeatherData.GetLongitude();
 					return m_longitude;
-				}
-				else
-				{
-					return m_longitude;
-				}
 			}
 			set
 			{
