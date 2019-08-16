@@ -13,14 +13,38 @@ namespace SimpleApp
 		public WeatherViewModel()
 		{
 			m_weatherDataFactory = new WeatherDataFactory();
-			m_weatherDataFactory.Create();
+			WeatherData = m_weatherDataFactory.Create();
 		}
 
+		#region Properties
+
 		public IWeatherData WeatherData { get; set; }
+
+		public string Latitude
+		{
+			get
+			{
+				return WeatherData.GetLatitude();
+			}
+		}
+
+		public string Longitude
+		{
+			get
+			{
+				return WeatherData.GetLongitude();
+			}
+		}
+
+		#endregion
+
+		#region IDisposable Implementation
 
 		public void Dispose()
 		{
 			WeatherData = null;
 		}
+
+		#endregion
 	}
 }

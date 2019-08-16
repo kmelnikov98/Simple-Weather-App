@@ -18,7 +18,8 @@ namespace SimpleApp
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
-	public partial class WeatherView : Window
+	public partial class WeatherView 
+		: Window, IDisposable
 	{
 		private WeatherViewModel m_weatherViewModel;
 		public WeatherView()
@@ -26,6 +27,12 @@ namespace SimpleApp
 			InitializeComponent();
 			m_weatherViewModel = new WeatherViewModel();
 			this.DataContext = m_weatherViewModel;
+		}
+
+		public void Dispose()
+		{
+			m_weatherViewModel.Dispose();
+			m_weatherViewModel = null;
 		}
 	}
 }
