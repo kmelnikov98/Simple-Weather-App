@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SimpleApp"
         mc:Ignorable="d"
-        Title="WeatherView" Height="450" Width="800">
+        Title="Location Report" Height="450" Width="800">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -20,12 +20,12 @@
         </Grid.RowDefinitions>
 
         <TextBox Text="{Binding City}"
-                 Width="50"
+                 Width="100"
                  Grid.Column="0"
                  HorizontalAlignment="Center"/>
 
         <TextBox Text="{Binding Country}"
-                 Width="50"
+                 Width="100"
                  Grid.Row="1"
                  Grid.Column="0"
                  HorizontalAlignment="Center"/>
