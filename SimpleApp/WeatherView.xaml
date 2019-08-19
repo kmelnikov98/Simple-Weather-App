@@ -11,6 +11,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -35,16 +36,21 @@
                 Grid.Column="1"
                 Content="Search"/>
 
-        <TextBlock Text="{Binding Latitude, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        <TextBlock Text="{Binding Latitude, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                    FontSize="25"
                    Grid.Row="2"
                    Grid.Column="0"/>
 
-        <TextBlock Text="{Binding Longitude, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        <TextBlock Text="{Binding Longitude, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                    Margin="5 0 0 0"
                    FontSize="25"
                    Grid.Row="2"
                    Grid.Column="1"/>
-        
+        <TextBlock Text="{Binding Weather, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                   Margin="5 0 0 0"
+                   FontSize="25"
+                   Grid.Row="2"
+                   Grid.Column="2"/>
+
     </Grid>
 </Window>

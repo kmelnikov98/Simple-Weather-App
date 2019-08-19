@@ -15,8 +15,6 @@ namespace SimpleApp
 		private readonly IWeatherDataFactory m_weatherDataFactory;
 		private string m_country;
 		private string m_city;
-		private string m_longitude;
-		private string m_latitude;
 
 
 		public WeatherViewModel()
@@ -31,40 +29,19 @@ namespace SimpleApp
 
 		public string Latitude
 		{
-			get
-			{
-				m_latitude = WeatherData.GetLatitude();
-				return m_latitude;
-				
-			}
-			set
-			{
-				if (value != null)
-				{
-					m_latitude = value;
-				}
-
-				OnPropertyChanged("Longitude");
-			}
+			get => WeatherData.GetLatitude();
 		}
 
 		public string Longitude
 		{
-			get
-			{
-					m_longitude = WeatherData.GetLongitude();
-					return m_longitude;
-			}
-			set
-			{
-				if(value != null)
-				{
-					m_longitude = value;
-				}
-
-				OnPropertyChanged("Longitude");
-			}
+			get => WeatherData.GetLongitude();
 		}
+
+		public string Weather
+		{
+			get => WeatherData.GetWeather();
+		}
+
 
 		public string City
 		{
@@ -85,16 +62,13 @@ namespace SimpleApp
 
 		#region ICommand Implementation
 
-		public ICommand SearchCommand => new RelayCommand(param => Search_());
+		public ICommand SearchCommand => new RelayCommand(param => Search_()); //relay command supports normal actions, and canExecute. 
 
 		//public ICommand EzcCommand => new Commands.DelegateCommand(BurnToDisc_, CanBurnToDisc_);
 
 		private void Search_()
 		{
 			UpdateValues_();
-			OnPropertyChanged("Longitude");
-			OnPropertyChanged("Latitude");
-
 		}
 
 		#endregion
@@ -114,6 +88,10 @@ namespace SimpleApp
 			}
 
 			WeatherData.GetWeatherData(); //update system
+
+			OnPropertyChanged("Longitude");
+			OnPropertyChanged("Latitude");
+			OnPropertyChanged("Weather");
 		}
 
 		#endregion

@@ -14,6 +14,7 @@ namespace SimpleApp
 		string GetWeatherData();
 		string GetLatitude();
 		string GetLongitude();
+		string GetWeather();
 
 	}
 }

@@ -66,6 +66,17 @@ namespace SimpleApp
 			return result;
 		}
 
+		public string GetWeather()
+		{
+			var data = m_weatherData;
+			int pFrom = data.IndexOf("description\":") + ("description\":".Length); //gives starting position
+			int pTo = data.IndexOf(",", pFrom); //give ending position of comma
+
+			var result = data.Substring(pFrom, pTo - pFrom);
+
+			return result;
+		}
+
 		#endregion
 
 
