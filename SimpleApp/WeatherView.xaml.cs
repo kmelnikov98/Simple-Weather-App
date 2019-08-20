@@ -13,19 +13,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SimpleApp
+namespace WpfStyleableWindow
 {
 	/// <summary>
-	/// Interaction logic for MainWindow.xaml
+	/// Interaction logic for WEatherView.xaml
 	/// </summary>
-	public partial class WeatherView 
+	public partial class WeatherView
 		: Window, IDisposable
 	{
-		private WeatherViewModel m_weatherViewModel;
+		private SimpleApp.WeatherViewModel m_weatherViewModel;
 		public WeatherView()
 		{
 			InitializeComponent();
-			m_weatherViewModel = new WeatherViewModel();
+			m_weatherViewModel = new SimpleApp.WeatherViewModel();
 			this.DataContext = m_weatherViewModel;
 		}
 

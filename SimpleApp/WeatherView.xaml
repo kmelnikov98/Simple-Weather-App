@@ -1,12 +1,13 @@
-﻿<Window x:Class="SimpleApp.WeatherView"
+﻿<Window x:Class="WpfStyleableWindow.WeatherView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SimpleApp"
-        mc:Ignorable="d"
-        Title="Location Report" Height="450" Width="800">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
+        Title="Location Report" Height="350" 
+        Width="525" Style="{StaticResource CustomWindowStyle}" 
+        x:Name="testw" Icon="App.ico" 
+        BorderThickness="3">
 
+    <!--Credit goes JayChase at https://code.msdn.microsoft.com/windowsdesktop/WPF-styling-a-Window-in-fcf4e4ce for the UI window work-->
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
