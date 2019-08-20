@@ -73,6 +73,8 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <TextBlock Text="Latitude: "
                        Grid.Column="0"
@@ -81,6 +83,7 @@
                        Margin="0 0 3 0"/>
             <TextBlock Text="{Binding Latitude, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                        FontSize="13"
+                       Margin="5 0 0 0"
                        Grid.Row="0"
                        Grid.Column="1"/>
 
@@ -106,6 +109,28 @@
                        FontSize="13"
                        Grid.Column="1"
                        Grid.Row="2"/>
+
+            <TextBlock Text="Min Temperature: "
+                       Grid.Column="0"
+                       FontSize="13"
+                       Grid.Row="3"
+                       Margin="0 0 3 0"/>
+            <TextBlock Text="{Binding MinTemperature, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                       Margin="5 0 0 0"
+                       FontSize="13"
+                       Grid.Column="1"
+                       Grid.Row="3"/>
+
+            <TextBlock Text="Max Temperature: "
+                       Grid.Column="0"
+                       FontSize="13"
+                       Grid.Row="4"
+                       Margin="0 0 3 0"/>
+            <TextBlock Text="{Binding MaxTemperature, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                       Margin="5 0 0 0"
+                       FontSize="13"
+                       Grid.Column="1"
+                       Grid.Row="4"/>
         </Grid>
     </StackPanel>
 </Window>

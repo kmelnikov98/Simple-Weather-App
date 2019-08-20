@@ -42,6 +42,15 @@ namespace SimpleApp
 			get => WeatherData.GetWeather();
 		}
 
+		public string MinTemperature
+		{
+			get => WeatherData.GetMinTemperature();
+		}
+
+		public string MaxTemperature
+		{
+			get => WeatherData.GetMaxTemperature();
+		}
 
 		public string City
 		{
@@ -64,7 +73,7 @@ namespace SimpleApp
 
 		public ICommand SearchCommand => new RelayCommand(param => Search_()); //relay command supports normal actions, and canExecute. 
 
-		//public ICommand EzcCommand => new Commands.DelegateCommand(BurnToDisc_, CanBurnToDisc_);
+		//public ICommand newCommand => new Commands.Command(BurnToDisc_, CanBurnToDisc_);
 
 		private void Search_()
 		{
@@ -92,6 +101,8 @@ namespace SimpleApp
 			OnPropertyChanged("Longitude");
 			OnPropertyChanged("Latitude");
 			OnPropertyChanged("Weather");
+			OnPropertyChanged("MinTemperature");
+			OnPropertyChanged("MaxTemperature");
 		}
 
 		#endregion

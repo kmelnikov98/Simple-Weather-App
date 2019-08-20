@@ -69,10 +69,32 @@ namespace SimpleApp
 		public string GetWeather()
 		{
 			var data = m_weatherData;
-			int pFrom = data.IndexOf("description\":") + ("description\":".Length); //gives starting position
-			int pTo = data.IndexOf(",", pFrom); //give ending position of comma
+			int pFrom = data.IndexOf("description\":") + ("description\":".Length); 
+			int pTo = data.IndexOf(",", pFrom); 
 
 			var result = data.Substring(pFrom, pTo - pFrom);
+
+			return result;
+		}
+
+		public string GetMinTemperature()
+		{
+			var data = m_weatherData;
+			int pFrom = data.IndexOf("temp_min\":") + ("temp_min\":".Length); 
+			int pTo = data.IndexOf(",", pFrom); 
+
+			var result = data.Substring(pFrom, pTo - pFrom);
+
+			return result;
+		}
+
+		public string GetMaxTemperature()
+		{
+			var data = m_weatherData;
+			int pFrom = data.IndexOf("temp_max\":") + ("temp_max\":".Length); 
+			int pTo = data.IndexOf(",", pFrom); 
+
+			var result = data.Substring(pFrom, pTo - pFrom - 1);
 
 			return result;
 		}
