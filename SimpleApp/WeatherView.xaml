@@ -7,50 +7,105 @@
         BorderThickness="3">
 
     <!--Credit goes JayChase at https://code.msdn.microsoft.com/windowsdesktop/WPF-styling-a-Window-in-fcf4e4ce for the UI window work-->
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
+    <!--Icons made by
+    <a href="https://www.flaticon.com/authors/cole-bemis" title="Cole Bemis">Cole Bemis</a> from
+    <a href="https://www.flaticon.com/"         title="Flaticon">www.flaticon.com</a> is licensed by
+    <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>-->
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+    <StackPanel Orientation="Vertical">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
 
-        <TextBox Text="{Binding City}"
-                 Width="100"
-                 Grid.Column="0"
-                 HorizontalAlignment="Center"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Margin="0 10 0 10"
+                    Orientation="Horizontal"
+                        Height="22"
+                    Grid.Row="0">
+                <TextBlock Text="City: "
+                       Grid.Column="0"
+                       Margin="0 0 26 0"
+                       Foreground="WhiteSmoke"
+                       FontSize="13"/>
 
-        <TextBox Text="{Binding Country}"
-                 Width="100"
-                 Grid.Row="1"
-                 Grid.Column="0"
-                 HorizontalAlignment="Center"/>
+                <TextBox Text="{Binding City}"
+                     Width="200"
+                     Grid.Column="1"
+                     Grid.Row="0"
+                     HorizontalAlignment="Center"/>
+            </StackPanel>
 
-        <Button Command="{Binding SearchCommand}"
-                Grid.Row="1"
-                Grid.Column="1"
-                Content="Search"/>
+            <StackPanel Margin="0 0 0 10"
+                    Orientation="Horizontal"
+                    Grid.Row="1">
+                <TextBlock Text="Country: "
+                       Grid.Column="0"
+                       Margin="0 0 2 0"
+                       Foreground="WhiteSmoke"
+                       FontSize="13"/>
 
-        <TextBlock Text="{Binding Latitude, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
-                   FontSize="25"
-                   Grid.Row="2"
-                   Grid.Column="0"/>
+                <TextBox Text="{Binding Country}"
+                     Width="200"
+                     Grid.Column="1"
+                     HorizontalAlignment="Center"/>
 
-        <TextBlock Text="{Binding Longitude, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
-                   Margin="5 0 0 0"
-                   FontSize="25"
-                   Grid.Row="2"
-                   Grid.Column="1"/>
-        <TextBlock Text="{Binding Weather, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
-                   Margin="5 0 0 0"
-                   FontSize="25"
-                   Grid.Row="2"
-                   Grid.Column="2"/>
+                <Button Command="{Binding SearchCommand}"
+                    Grid.Column="2"
+                    Padding="3 3 3 3"
+                    Margin="5 0 0 0"
+                    Content="Search"/>
+            </StackPanel>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
 
-    </Grid>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Latitude: "
+                       Grid.Column="0"
+                       FontSize="13"
+                       Grid.Row="0"
+                       Margin="0 0 3 0"/>
+            <TextBlock Text="{Binding Latitude, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                       FontSize="13"
+                       Grid.Row="0"
+                       Grid.Column="1"/>
+
+            <TextBlock Text="Longitude: "
+                       Grid.Column="0"
+                       FontSize="13"
+                       Grid.Row="1"
+                       Margin="0 0 3 0"/>
+            <TextBlock Text="{Binding Longitude, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                       Margin="5 0 0 0"
+                       FontSize="13"
+                       HorizontalAlignment="Left"
+                       Grid.Column="1"
+                       Grid.Row="1"/>
+
+            <TextBlock Text="Weather: "
+                       Grid.Column="0"
+                       FontSize="13"
+                       Grid.Row="2"
+                       Margin="0 0 3 0"/>
+            <TextBlock Text="{Binding Weather, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                       Margin="5 0 0 0"
+                       FontSize="13"
+                       Grid.Column="1"
+                       Grid.Row="2"/>
+        </Grid>
+    </StackPanel>
 </Window>
