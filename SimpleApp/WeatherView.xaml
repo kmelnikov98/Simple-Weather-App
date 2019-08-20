@@ -3,11 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
         Title="Location Report" Height="350" 
         Width="525" Style="{StaticResource CustomWindowStyle}" 
-        x:Name="testw" Icon="App.ico" 
+        Icon="/Images/menu.png"  Foreground="WhiteSmoke"
         BorderThickness="3">
 
     <!--Credit goes JayChase at https://code.msdn.microsoft.com/windowsdesktop/WPF-styling-a-Window-in-fcf4e4ce for the UI window work-->
-    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
