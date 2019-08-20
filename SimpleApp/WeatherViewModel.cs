@@ -62,7 +62,6 @@ namespace SimpleApp
 		{
 			get { return m_country; }
 			set { m_country = value; }
-
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
