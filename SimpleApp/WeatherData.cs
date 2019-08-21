@@ -9,9 +9,10 @@ namespace SimpleApp
 {
 	class WeatherData : IWeatherData
 	{
-		#region IWeatherData Implementation
+
 
 		private string m_weatherData;
+		private const double k_tempZero = 273.15;
 
 		#region Constructor
 
@@ -22,13 +23,12 @@ namespace SimpleApp
 
 		#endregion
 
-		#region Properties
+		#region IWeatherData Implementation
 
 		public string CityLocation { get; set; }
 
 		public string CountryLocation { get; set; }
 
-		#endregion
 
 		public string GetWeatherData()
 		{
@@ -80,27 +80,30 @@ namespace SimpleApp
 		public string GetMinTemperature()
 		{
 			var data = m_weatherData;
+
 			int pFrom = data.IndexOf("temp_min\":") + ("temp_min\":".Length); 
 			int pTo = data.IndexOf(",", pFrom); 
 
 			var result = data.Substring(pFrom, pTo - pFrom);
+			var tempInCelsius = (double.Parse(result) - k_tempZero).ToString() + "°C";
 
-			return result;
+			return tempInCelsius;
 		}
 
 		public string GetMaxTemperature()
 		{
 			var data = m_weatherData;
+
 			int pFrom = data.IndexOf("temp_max\":") + ("temp_max\":".Length); 
 			int pTo = data.IndexOf(",", pFrom); 
 
 			var result = data.Substring(pFrom, pTo - pFrom - 1);
+			var tempInCelsius = (double.Parse(result) - k_tempZero).ToString() + "°C";
 
-			return result;
+			return tempInCelsius;
 		}
 
 		#endregion
-
 
 	}
 }
