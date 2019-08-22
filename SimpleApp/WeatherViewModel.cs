@@ -20,7 +20,6 @@ namespace SimpleApp
 		public WeatherViewModel()
 		{
 			m_weatherDataFactory = new WeatherDataFactory();
-			WeatherData = m_weatherDataFactory.Create();
 		}
 
 		#region Properties
@@ -76,6 +75,11 @@ namespace SimpleApp
 
 		private void Search_()
 		{
+			if(WeatherData == null)
+			{
+				WeatherData = m_weatherDataFactory.Create();
+			}
+
 			UpdateValues_();
 		}
 

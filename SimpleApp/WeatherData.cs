@@ -32,12 +32,12 @@ namespace SimpleApp
 		{
 			if (CityLocation != null && CountryLocation != null)
 			{
-				HttpResponse<string> jsonResponse = Unirest.get("https://community-open-weather-map.p.rapidapi.com/weather?callback=test&id=2172797&units=%22metric%22+or+%22imperial%22&mode=xml%2C+html&q=" + CityLocation + "%2C+" + CountryLocation + "&units=%22metric%22")
+				Task <HttpResponse<string>> jsonResponse = Unirest.get("https://community-open-weather-map.p.rapidapi.com/weather?callback=test&id=2172797&units=%22metric%22+or+%22imperial%22&mode=xml%2C+html&q=" + CityLocation + "%2C+" + CountryLocation + "&units=%22metric%22")
 				.header("X-RapidAPI-Host", "community-open-weather-map.p.rapidapi.com")
 				.header("X-RapidAPI-Key", "baa31766f0mshf8829a0c8da5dd9p1a932ajsn480bfe440f3b")
-				.asJson<string>();
+				.asJsonAsync<string>();
 
-				m_weatherData = jsonResponse.Body;
+				m_weatherData = jsonResponse.Result.Body.ToString();
 			}
 
 			return m_weatherData;
