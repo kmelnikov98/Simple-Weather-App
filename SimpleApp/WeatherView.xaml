@@ -67,6 +67,7 @@
 
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="300" />
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
@@ -131,6 +132,18 @@
                        FontSize="13"
                        Grid.Column="1"
                        Grid.Row="4"/>
+
+            <Image Source="/Images/moon.png" 
+                   Stretch="Uniform" 
+                   Height="100"
+                   Width="100"
+                   HorizontalAlignment="Right"
+                   Grid.Column="2" 
+                   Grid.RowSpan="5" 
+                   Margin="0 5 0 5" />
         </Grid>
+
+ 
     </StackPanel>
+    
 </Window>
