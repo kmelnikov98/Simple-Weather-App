@@ -29,8 +29,10 @@ namespace SimpleApp
 		public string CountryLocation { get; set; }
 
 
-		//this code doesn't really touch the Ui(in terms of updating) so a dispatcher isn't necessary. 
+		//this code doesn't really touch the Ui(in terms of updating) so a dispatcher isn't necessary. DIspatcher is used to
+		//when the code is within an async method, but it updates the Ui, meaning that the Ui thread is used. It would crash w/o it.
 		//All it does is update the database of weatherData, making no changes to UI. Ui changes are all made in viewModel at this time. 
+		//Use Thread.Sleep(); too see if the async method is properly working. Result is that the UI should not freeze up.
 
 		public async Task<string> GetWeatherDataAsync()
 		{
