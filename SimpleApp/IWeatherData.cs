@@ -11,7 +11,7 @@ namespace SimpleApp
 	{
 		string CityLocation { get; set; }
 		string CountryLocation { get; set; }
-		string GetWeatherData();
+		Task<string> GetWeatherDataAsync();
 		string GetLatitude();
 		string GetLongitude();
 		string GetWeather();

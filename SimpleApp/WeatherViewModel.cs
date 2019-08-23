@@ -87,7 +87,7 @@ namespace SimpleApp
 
 		#region Private Methods
 
-		private void UpdateValues_()
+		private async void UpdateValues_()
 		{
 			if(m_city != null && m_city.Length > 0)
 			{
@@ -99,7 +99,7 @@ namespace SimpleApp
 				WeatherData.CountryLocation = m_country;
 			}
 
-			WeatherData.GetWeatherData(); //update system
+			await WeatherData.GetWeatherDataAsync(); //update system
 
 			OnPropertyChanged("Longitude");
 			OnPropertyChanged("Latitude");

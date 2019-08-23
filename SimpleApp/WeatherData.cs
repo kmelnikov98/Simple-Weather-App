@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using unirest_net.http;
 
@@ -28,19 +29,25 @@ namespace SimpleApp
 		public string CountryLocation { get; set; }
 
 
-		public string GetWeatherData()
+		//this code doesn't really touch the Ui(in terms of updating) so a dispatcher isn't necessary. 
+		//All it does is update the database of weatherData, making no changes to UI. Ui changes are all made in viewModel at this time. 
+
+		public async Task<string> GetWeatherDataAsync()
 		{
-			if (CityLocation != null && CountryLocation != null)
+			return await Task.Run(() =>
 			{
-				Task <HttpResponse<string>> jsonResponse = Unirest.get("https://community-open-weather-map.p.rapidapi.com/weather?callback=test&id=2172797&units=%22metric%22+or+%22imperial%22&mode=xml%2C+html&q=" + CityLocation + "%2C+" + CountryLocation + "&units=%22metric%22")
-				.header("X-RapidAPI-Host", "community-open-weather-map.p.rapidapi.com")
-				.header("X-RapidAPI-Key", "baa31766f0mshf8829a0c8da5dd9p1a932ajsn480bfe440f3b")
-				.asJsonAsync<string>();
+				if (CityLocation != null && CountryLocation != null)
+				{
+					Task <HttpResponse<string>> jsonResponse = Unirest.get("https://community-open-weather-map.p.rapidapi.com/weather?callback=test&id=2172797&units=%22metric%22+or+%22imperial%22&mode=xml%2C+html&q=" + CityLocation + "%2C+" + CountryLocation + "&units=%22metric%22")
+					.header("X-RapidAPI-Host", "community-open-weather-map.p.rapidapi.com")
+					.header("X-RapidAPI-Key", "baa31766f0mshf8829a0c8da5dd9p1a932ajsn480bfe440f3b")
+					.asJsonAsync<string>();
 
-				m_weatherData = jsonResponse.Result.Body.ToString();
-			}
+					m_weatherData = jsonResponse.Result.Body.ToString();
+				}
 
-			return m_weatherData;
+				return m_weatherData;
+			});
 		}
 
 		public string GetLatitude()
